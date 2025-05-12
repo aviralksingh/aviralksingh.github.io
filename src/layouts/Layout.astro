@@ -20,25 +20,20 @@ const currentPath = Astro.url.pathname;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
 	</head>
 	<body class="min-h-screen bg-black text-white font-sans">
 		<!-- Minimal Header -->
-		<header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div class="flex justify-between items-center h-20">
-					<a href="/" class="text-2xl font-light tracking-wider hover:text-gray-400 transition-colors">AS</a>
-					<nav class="hidden md:flex space-x-12">
-						<a href="/" class="nav-link text-sm tracking-wider{currentPath === '/' ? ' active' : ''}">OVERVIEW</a>
-						<a href="/about" class="nav-link text-sm tracking-wider{currentPath.startsWith('/about') ? ' active' : ''}">ABOUT</a>
-						<a href="/projects" class="nav-link text-sm tracking-wider{currentPath.startsWith('/projects') ? ' active' : ''}">PROJECTS</a>
-						<a href="/contact" class="nav-link text-sm tracking-wider{currentPath.startsWith('/contact') ? ' active' : ''}">CONTACT</a>
-					</nav>
-					<button class="md:hidden text-white hover:text-gray-400 transition-colors">
-						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-						</svg>
-					</button>
-				</div>
+		<header style="width:100%;position:fixed;top:0;left:0;z-index:50;background:transparent;border:none;box-shadow:none;">
+			<div class="pure-menu pure-menu-horizontal" style="width:100%;display:flex;justify-content:center;align-items:center;">
+				<a href="/" class="pure-menu-heading" style="flex:1;text-align:center;color:#fff;">Aviral Singh</a>
+				<ul class="pure-menu-list" style="flex:1;justify-content:flex-end;display:flex;">
+					<li class="pure-menu-item"><a href="/" class={`pure-menu-link${currentPath === '/' ? ' active' : ''}`}>Home</a></li>
+					<li class="pure-menu-item"><a href="/about" class={`pure-menu-link${currentPath.startsWith('/about') ? ' active' : ''}`}>About</a></li>
+					<li class="pure-menu-item"><a href="/projects" class={`pure-menu-link${currentPath.startsWith('/projects') ? ' active' : ''}`}>Projects</a></li>
+					<li class="pure-menu-item"><a href="/contact" class={`pure-menu-link${currentPath.startsWith('/contact') ? ' active' : ''}`}>Contact</a></li>
+				</ul>
 			</div>
 		</header>
 
@@ -51,11 +46,15 @@ const currentPath = Astro.url.pathname;
 		<footer class="fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-sm py-4">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between items-center text-sm tracking-wider">
-					<p>© {new Date().getFullYear()} Aviral Singh</p>
-					<div class="flex space-x-6">
-						<a href="https://github.com/yourusername" class="hover:text-gray-400 transition-colors">GITHUB</a>
-						<a href="https://linkedin.com/in/yourusername" class="hover:text-gray-400 transition-colors">LINKEDIN</a>
+					<div class="flex items-center space-x-2">
+						<a href="https://github.com/aviralksingh">
+							<img src="images/github.png" alt="GitHub" width="24" height="24" class="inline-block" />
+						</a>
+						<a href="https://www.linkedin.com/in/aviral-singh-a389047b/">
+							<img src="images/linkedin.png" alt="LinkedIn" width="24" height="24" class="inline-block" />
+						</a>
 					</div>
+					<p>© {new Date().getFullYear()} Aviral Singh</p>
 				</div>
 			</div>
 		</footer>
@@ -80,38 +79,12 @@ const currentPath = Astro.url.pathname;
 	}
 
 	/* Navigation */
-	.nav-link {
-		position: relative;
-		color: #fff;
-		text-decoration: none;
-		transition: color 0.3s ease;
+	.pure-menu-heading, .pure-menu-link {
+		color: #fff !important;
 	}
 
-	.nav-link::after {
-		content: '';
-		position: absolute;
-		width: 0;
-		height: 1px;
-		bottom: -4px;
-		left: 0;
-		background-color: #fff;
-		transition: width 0.3s ease;
-	}
-
-	.nav-link:hover {
-		color: #999;
-	}
-
-	.nav-link:hover::after {
-		width: 100%;
-	}
-
-	.nav-link.active {
-		color: #999;
-	}
-
-	.nav-link.active::after {
-		width: 100%;
+	.pure-menu-link.active {
+		border-bottom: 2px solid #fff;
 	}
 
 	/* Typography */
@@ -172,5 +145,9 @@ const currentPath = Astro.url.pathname;
 
 	::-webkit-scrollbar-thumb:hover {
 		background: #444444;
+	}
+
+	body {
+		background: #000;
 	}
 </style>

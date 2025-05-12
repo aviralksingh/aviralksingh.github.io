@@ -30,64 +30,47 @@ const projects = [
 ---
 
 <Layout title="Projects - Aviral Singh">
-	<!-- Projects Header -->
-	<section class="min-h-[50vh] flex items-center justify-center relative">
-		<div class="absolute inset-0 bg-black/50 z-10"></div>
-		<div class="absolute inset-0">
-			<img src="/projects-bg.jpg" alt="Projects Background" class="w-full h-full object-cover" />
+	<section style="min-height: 40vh; display: flex; align-items: center; justify-content: center; position: relative; background: #111;">
+		<div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 10;"></div>
+		<div style="position: absolute; inset: 0;">
+			<img src="/projects-bg.jpg" alt="Projects Background" style="width: 100%; height: 100%; object-fit: cover;" />
 		</div>
-		<div class="relative z-20 text-center">
-			<h1 class="text-6xl md:text-8xl font-light tracking-wider mb-8">PROJECTS</h1>
-			<p class="text-xl md:text-2xl tracking-wider text-gray-300">SELECTED WORK & RESEARCH</p>
+		<div style="position: relative; z-index: 20; text-align: center;">
+			<h1 style="font-size: 3rem; color: #fff; margin-bottom: 1rem;">PROJECTS</h1>
+			<p style="font-size: 1.5rem; color: #ccc;">SELECTED WORK & RESEARCH</p>
 		</div>
 	</section>
 
-	<!-- Projects Grid -->
-	<section class="py-20">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-				<a href="/projects/project1" class="project-card group">
-					<img src="/project1.jpg" alt="Project 1" />
-					<div class="overlay flex flex-col items-center justify-center p-8">
-						<h3 class="text-3xl font-light tracking-wider mb-4">Project One</h3>
-						<p class="text-gray-300 text-center">A brief description of the project and its impact.</p>
+	<section style="background: #181818; padding: 3rem 0;">
+		<div style="max-width: 1100px; margin: 0 auto;">
+			<div class="pure-g">
+				<div class="pure-u-1 pure-u-md-1-3" style="padding: 1rem;">
+					<div style="background: #222; border-radius: 8px; padding: 1.5rem; min-height: 200px; color: #fff;">
+						<h3>Autonomous Perception Stack</h3>
+						<p>Led a team to develop next-gen perception algorithms for Zoox's autonomous vehicles.</p>
 					</div>
-				</a>
-				<a href="/projects/project2" class="project-card group">
-					<img src="/project2.jpg" alt="Project 2" />
-					<div class="overlay flex flex-col items-center justify-center p-8">
-						<h3 class="text-3xl font-light tracking-wider mb-4">Project Two</h3>
-						<p class="text-gray-300 text-center">A brief description of the project and its impact.</p>
+				</div>
+				<div class="pure-u-1 pure-u-md-1-3" style="padding: 1rem;">
+					<div style="background: #222; border-radius: 8px; padding: 1.5rem; min-height: 200px; color: #fff;">
+						<h3>Sensor Fusion Platform</h3>
+						<p>Designed and deployed multi-sensor fusion for L2+/L4 autonomy at Canoo and FCA.</p>
 					</div>
-				</a>
-				<a href="/projects/project3" class="project-card group">
-					<img src="/project3.jpg" alt="Project 3" />
-					<div class="overlay flex flex-col items-center justify-center p-8">
-						<h3 class="text-3xl font-light tracking-wider mb-4">Project Three</h3>
-						<p class="text-gray-300 text-center">A brief description of the project and its impact.</p>
+				</div>
+				<div class="pure-u-1 pure-u-md-1-3" style="padding: 1rem;">
+					<div style="background: #222; border-radius: 8px; padding: 1.5rem; min-height: 200px; color: #fff;">
+						<h3>Deep Learning Research</h3>
+						<p>Published research and deployed deep learning models for real-world autonomous systems.</p>
 					</div>
-				</a>
-				<a href="/projects/project4" class="project-card group">
-					<img src="/project4.jpg" alt="Project 4" />
-					<div class="overlay flex flex-col items-center justify-center p-8">
-						<h3 class="text-3xl font-light tracking-wider mb-4">Project Four</h3>
-						<p class="text-gray-300 text-center">A brief description of the project and its impact.</p>
-					</div>
-				</a>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Contact CTA -->
-	<section class="py-20 bg-gray-900">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-			<h2 class="text-4xl md:text-6xl font-light tracking-wider mb-8">LET'S WORK TOGETHER</h2>
-			<p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-				Interested in collaborating on a project? I'm always open to discussing new opportunities and ideas.
-			</p>
-			<a href="/contact" class="inline-block text-white border border-white px-8 py-3 tracking-wider hover:bg-white hover:text-black transition-colors">
-				GET IN TOUCH
-			</a>
+	<section style="background: #111; padding: 3rem 0;">
+		<div style="max-width: 900px; margin: 0 auto; text-align: center;">
+			<h2 style="color: #fff; margin-bottom: 1.5rem;">Want to collaborate?</h2>
+			<p style="color: #ccc; margin-bottom: 2rem;">I'm always open to new opportunities and collaborations in AI, robotics, and autonomous systems. Let's build something amazing together.</p>
+			<a href="/contact" class="pure-button pure-button-primary" style="font-size: 1.1rem;">Get in Touch</a>
 		</div>
 	</section>
 </Layout>
