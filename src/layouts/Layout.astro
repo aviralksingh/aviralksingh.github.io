@@ -5,6 +5,9 @@ interface Props {
 }
 
 const { title, description = "Aviral Singh's Portfolio" } = Astro.props;
+
+// Get current path for active state
+const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -16,27 +19,110 @@ const { title, description = "Aviral Singh's Portfolio" } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body class="min-h-screen bg-gray-50 dark:bg-gray-900">
-		<nav class="bg-white dark:bg-gray-800 shadow-lg">
+	<body class="min-h-screen bg-gray-50 dark:bg-gray-900 font-sans">
+		<nav class="bg-white dark:bg-gray-800 shadow-lg fixed w-full top-0 z-50">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between h-16">
 					<div class="flex">
 						<div class="flex-shrink-0 flex items-center">
-							<a href="/" class="text-xl font-bold text-gray-800 dark:text-white">AS</a>
+							<a href="/" class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+								AS
+							</a>
 						</div>
 						<div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-							<a href="/" class="border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
-							<a href="/about" class="border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">About</a>
-							<a href="/projects" class="border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Projects</a>
-							<a href="/contact" class="border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+							<a
+								href="/"
+								class={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+									currentPath === '/'
+										? 'border-purple-500 text-gray-900 dark:text-white'
+										: 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white'
+								}`}
+							>
+								Home
+							</a>
+							<a
+								href="/about"
+								class={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+									currentPath === '/about'
+										? 'border-purple-500 text-gray-900 dark:text-white'
+										: 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white'
+								}`}
+							>
+								About
+							</a>
+							<a
+								href="/projects"
+								class={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+									currentPath === '/projects'
+										? 'border-purple-500 text-gray-900 dark:text-white'
+										: 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white'
+								}`}
+							>
+								Projects
+							</a>
+							<a
+								href="/contact"
+								class={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+									currentPath === '/contact'
+										? 'border-purple-500 text-gray-900 dark:text-white'
+										: 'border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-white'
+								}`}
+							>
+								Contact
+							</a>
 						</div>
 					</div>
+					<div class="flex items-center sm:hidden">
+						<button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+							<span class="sr-only">Open main menu</span>
+							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile menu -->
+			<div class="mobile-menu hidden sm:hidden">
+				<div class="pt-2 pb-3 space-y-1">
+					<a href="/" class={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+						currentPath === '/'
+							? 'border-purple-500 text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-gray-700'
+							: 'border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+					}`}>
+						Home
+					</a>
+					<a href="/about" class={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+						currentPath === '/about'
+							? 'border-purple-500 text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-gray-700'
+							: 'border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+					}`}>
+						About
+					</a>
+					<a href="/projects" class={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+						currentPath === '/projects'
+							? 'border-purple-500 text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-gray-700'
+							: 'border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+					}`}>
+						Projects
+					</a>
+					<a href="/contact" class={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+						currentPath === '/contact'
+							? 'border-purple-500 text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-gray-700'
+							: 'border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+					}`}>
+						Contact
+					</a>
 				</div>
 			</div>
 		</nav>
 
-		<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+		<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-16">
 			<slot />
 		</main>
 
@@ -59,7 +145,7 @@ const { title, description = "Aviral Singh's Portfolio" } = Astro.props;
 	}
 
 	html {
-		font-family: system-ui, sans-serif;
+		font-family: 'Inter', system-ui, sans-serif;
 		background: #f6f6f6;
 		background-size: 224px;
 	}
@@ -68,4 +154,19 @@ const { title, description = "Aviral Singh's Portfolio" } = Astro.props;
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
+
+	/* Mobile menu toggle */
+	.mobile-menu {
+		display: none;
+	}
+	.mobile-menu.active {
+		display: block;
+	}
 </style>
+
+<script>
+	// Mobile menu toggle
+	document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+		document.querySelector('.mobile-menu').classList.toggle('active');
+	});
+</script>

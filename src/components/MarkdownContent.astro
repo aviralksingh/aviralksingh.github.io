@@ -1,0 +1,78 @@
+---
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props;
+---
+
+<article class="prose prose-lg dark:prose-invert max-w-none">
+  <div set:html={content} />
+</article>
+
+<style>
+  /* Base styles for markdown content */
+  :global(.prose) {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  :global(.prose h1) {
+    @apply text-4xl font-bold text-gray-900 dark:text-white mb-8;
+  }
+
+  :global(.prose h2) {
+    @apply text-3xl font-bold text-gray-900 dark:text-white mb-6 mt-12;
+  }
+
+  :global(.prose h3) {
+    @apply text-2xl font-bold text-gray-900 dark:text-white mb-4 mt-8;
+  }
+
+  :global(.prose p) {
+    @apply mb-4 leading-relaxed;
+  }
+
+  :global(.prose ul) {
+    @apply list-disc list-inside mb-4;
+  }
+
+  :global(.prose ol) {
+    @apply list-decimal list-inside mb-4;
+  }
+
+  :global(.prose li) {
+    @apply mb-2;
+  }
+
+  :global(.prose a) {
+    @apply text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300;
+  }
+
+  :global(.prose code) {
+    @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm;
+  }
+
+  :global(.prose pre) {
+    @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto;
+  }
+
+  :global(.prose blockquote) {
+    @apply border-l-4 border-purple-500 pl-4 italic my-4;
+  }
+
+  :global(.prose img) {
+    @apply rounded-lg shadow-lg my-8;
+  }
+
+  :global(.prose table) {
+    @apply w-full border-collapse mb-4;
+  }
+
+  :global(.prose th) {
+    @apply bg-gray-100 dark:bg-gray-800 px-4 py-2 text-left;
+  }
+
+  :global(.prose td) {
+    @apply border border-gray-200 dark:border-gray-700 px-4 py-2;
+  }
+</style>
